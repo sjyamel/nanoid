@@ -14,7 +14,7 @@ let pool, poolOffset
 
 function fillPool(bytes) {
   if (!pool || pool.length < bytes) {
-    pool = Buffer.allocUnsafe(bytes * POOL_SIZE_MULTIPLIER)
+    pool = Buffer.alloc(bytes * POOL_SIZE_MULTIPLIER)
     crypto.getRandomValues(pool)
     poolOffset = 0
   } else if (poolOffset + bytes > pool.length) {
